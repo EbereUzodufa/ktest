@@ -30,6 +30,7 @@
       max-width: 350px;
       @include flex-wrap();
       padding: 5%;
+      margin: auto;
 
       svg {
         height: 100%;
