@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
 
   explainResult(result: string, n?: number, p?: number) {
     if (result.toLowerCase() === 'yes') {
-      return 'Both Kangaroos will land at the same point <span>' + p + '</span> after <span>' + n + '</span> jumps.';
+      return 'Both Kangaroos will land at the same point <span class="text-green"><strong>' + p + '</strong></span> after <span class="text-green"><strong>' + n + '</strong></span> jumps.';
     }
 
     return 'Both Kangaroos will not land at the same point.';
