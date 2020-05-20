@@ -9,6 +9,10 @@ export class KangarooService {
   constructor() { }
 
   addToLocalStr(item: IHistory) {
+    const arr = this.checkforOldRecords();
+    if (arr.length > historyArr.length) {
+      historyArr = arr.slice(0) as IHistory[];
+    }
     return new Promise((res, rej) => {
       historyArr.push(item);
       this.updateToLocal();
@@ -34,6 +38,16 @@ export class KangarooService {
       res(arr);
     });
   }
+
+  checkforOldRecords() {
+    let arr = [];
+    const data = localStorage.getItem('history');
+    const obj = JSON.parse(data) as IHistory[];
+    if (obj && !!obj.length) {
+      arr = obj.slice(0);
+    }
+    return arr;
+  }
 }
 
-const historyArr: IHistory[] = [];
+let historyArr: IHistory[] = [];

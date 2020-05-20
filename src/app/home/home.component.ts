@@ -111,24 +111,25 @@ export class HomeComponent implements OnInit {
     if (n > 0 && Number.isInteger(n)) {
       this.result = 'Yes';
       this.noJumps = n;
-      this.samePoint = this.x1 + (n * this.v1);
-      const formInputs: IInput = {
-        x1: this.x1,
-        x2: this.x2,
-        v1: this.v1,
-        v2: this.v2
-      };
-      const timeStamp = Date.now();
-      const historyDoc: IHistory = {
-        field: formInputs,
-        result: this.result,
-        timestamp : timeStamp
-      };
-
-      this.kangarooService.addToLocalStr(historyDoc).then(_ => {
-        console.log('saved');
-      });
+      this.samePoint = +this.x1 + (n * this.v1);
     }
+
+    const formInputs: IInput = {
+      x1: this.x1,
+      x2: this.x2,
+      v1: this.v1,
+      v2: this.v2
+    };
+    const timeStamp = Date.now();
+    const historyDoc: IHistory = {
+      field: formInputs,
+      result: this.result,
+      timestamp : timeStamp
+    };
+
+    this.kangarooService.addToLocalStr(historyDoc).then(_ => {
+      console.log('saved');
+    });
 
     this.resultDesc = this.explainResult(this.result, this.noJumps, this.samePoint);
     this.showResult = true;
