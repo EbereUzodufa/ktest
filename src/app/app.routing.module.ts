@@ -5,7 +5,7 @@ import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -13,8 +13,8 @@ const routes: Routes = [
     component: HistoryComponent
   },
   {
-    path: 'home',
-    redirectTo: '',
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
