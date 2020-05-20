@@ -1,5 +1,5 @@
 <app-layout>
-  <div class="home-page">
+  <div class="home-page page">
     <div class="calculation-sect">
       <p class="intro">
         Calculate if two Kangaroos jumping in the same direction at different speed and start position can land on the same location at the same time;
@@ -21,6 +21,11 @@
           <label for="movingRate-k2">v2</label>
           <input type="number" name="movingRate-k2" id="movingRate-k2" formControlName="v2Inp" [min]="frmMinVVal" [max]="frmMaxVal">
         </div>
+        <div class="error" *ngIf="inputForm.errors && inputForm.errors.x1Greater">
+          <p>
+            <span class="text-green">Hint: </span> <strong>x2</strong> must be greater than <strong>x1</strong>
+          </p>
+        </div>
         <div class="frm-btn-container">
           <button type="submit" [disabled]="inputForm.invalid || inputForm.pristine">
             See Result
@@ -29,11 +34,13 @@
       </form>
     </div>
     <div class="result-section" *ngIf="showResult">
-      <p class="result-tect">
-        Result
-      </p>
-      <p class="result-value">{{result}}</p>
-      <p *ngIf="resultDesc" class="result-description" [innerHTML] = "resultDesc"></p>
+      <div class="result-wrapper">
+        <p class="result-text">
+          Result
+        </p>
+        <p class="result-value">{{result}}</p>
+        <p *ngIf="resultDesc" class="result-description" [innerHTML] = "resultDesc"></p>
+      </div>
     </div>
     <div class="product-description-section">
       <span class="svg">
