@@ -9,7 +9,6 @@ export class KangarooService {
   constructor() { }
 
   addToLocalStr(item: IHistory) {
-    // We expect undefine if it's not found
     return new Promise((res, rej) => {
       historyArr.push(item);
       this.updateToLocal();
@@ -24,14 +23,16 @@ export class KangarooService {
     }
   }
 
-  getFromLocal() {
-    const data = localStorage.getItem('cart');
-    const obj = JSON.parse(data) as IHistory[];
-    if (obj && !!obj.length) {
-      return obj;
-    }
-
-    return [];
+  getHistoryFromLocal() {
+    return new Promise((res, rej) => {
+      let arr = [];
+      const data = localStorage.getItem('history');
+      const obj = JSON.parse(data) as IHistory[];
+      if (obj && !!obj.length) {
+        arr = obj.slice(0);
+      }
+      res(arr);
+    });
   }
 }
 
