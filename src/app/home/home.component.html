@@ -4,36 +4,36 @@
       <p class="intro">
         Calculate if two Kangaroos jumping in the same direction at different speed and start position can land on the same location at the same time;
       </p>
-      <form class="kangaroo-input">
+      <form class="kangaroo-input" [formGroup]="inputForm" (ngSubmit)="formSubmit()">
         <div class="form-field">
           <label for="position-k1">x1</label>
-          <input type="number" name="position-k1" id="position-k1">
+          <input type="number" name="position-k1" id="position-k1" formControlName="x1Inp" [min]="frmMinXVal" [max]="frmMaxVal">
         </div>
         <div class="form-field">
           <label for="movingRate-k1">v1</label>
-          <input type="number" name="movingRate-k1" id="movingRate-k1">
+          <input type="number" name="movingRate-k1" id="movingRate-k1" formControlName="v1Inp" [min]="frmMinVVal" [max]="frmMaxVal">
         </div>
         <div class="form-field">
           <label for="position-k2">x2</label>
-          <input type="number" name="position-k2" id="position-k2">
+          <input type="number" name="position-k2" id="position-k2" formControlName="x2Inp" [min]="frmMinXVal" [max]="frmMaxVal">
         </div>
         <div class="form-field">
           <label for="movingRate-k2">v2</label>
-          <input type="number" name="movingRate-k2" id="movingRate-k2">
+          <input type="number" name="movingRate-k2" id="movingRate-k2" formControlName="v2Inp" [min]="frmMinVVal" [max]="frmMaxVal">
         </div>
         <div class="frm-btn-container">
-          <button type="submit">
+          <button type="submit" [disabled]="inputForm.invalid || inputForm.pristine">
             See Result
           </button>
         </div>
       </form>
     </div>
-    <div class="result-section">
+    <div class="result-section" *ngIf="showResult">
       <p class="result-tect">
         Result
       </p>
-      <p class="result-value"></p>
-      <p class="result-description"></p>
+      <p class="result-value">{{result}}</p>
+      <p *ngIf="resultDesc" class="result-description" [innerHTML] = "resultDesc"></p>
     </div>
     <div class="product-description-section">
       <span class="svg">
