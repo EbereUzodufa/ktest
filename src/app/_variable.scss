@@ -1,2 +1,7 @@
 $green: #09726C;
 $dark: #121212;
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
