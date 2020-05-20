@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     component: HomeComponent
@@ -13,7 +18,7 @@ const routes: Routes = [
     component: HistoryComponent
   },
   {
-    path: '',
+    path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
   }
@@ -21,7 +26,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes, {
+      preloadingStrategy: PreloadAllModules
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
