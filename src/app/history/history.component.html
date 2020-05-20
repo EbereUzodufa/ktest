@@ -19,7 +19,7 @@
         <tbody>
           <tr *ngFor="let item of histories; let i = index">
             <td class="sn" data-field="serial number">{{i + 1}}</td>
-            <td class="date" data-field="calculation date">{{ item.timestamp | date }}</td>
+            <td class="date" data-field="calculation date">{{ item.timestamp | date:'MMM d, y, h:mm:ss a' }}</td>
             <td class="field" data-field="calculation field">
               <span data-field="k1-x1" title="initial position kangaroo 1">{{item.field.x1}}</span>,
               <span data-field="k1-v1" title="jump velocity kangaroo 1">{{item.field.v1}}</span>,
