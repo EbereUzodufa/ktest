@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-ktest"
+    }
+  },
+  "defaultProject": "ng-ktest",
+  "cli": {
+    "analytics": false
+  }
 }
