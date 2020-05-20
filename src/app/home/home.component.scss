@@ -1,0 +1,94 @@
+@import './../variable';
+
+.home-page {
+  width: 100%;
+
+  .calculation-sect {
+    padding: 30px 15px;
+    width: 100%;
+    text-align: center;
+    @include flex-wrap();
+
+    .intro {
+      margin: 0 auto 20px;
+    }
+  }
+
+  .kangaroo-input {
+    @include flex-wrap();
+
+    .form-field {
+      padding: 10px 15px;
+      margin: 20px auto;
+
+      $w: 80px;
+      label {
+        width: $w;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
+      input[type='number'] {
+        width: $w;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #555555;
+        border-radius: 4px;
+        font-size: 16px;
+        color: $dark;
+
+        &::placeholder {
+          color: #555555;
+        }
+      }
+    }
+
+    .frm-btn-container {
+      width: 100%;
+      @include flex-wrap();
+
+      button {
+        background: #09726C;
+        border: 1px solid #09726C;
+        border-radius: 6px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        padding: 10px 16px;
+        margin: 20px auto 0;
+
+        &:hover {
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.11), 0 6px 9px rgba(220, 233, 255, 0.48);
+        }
+      }
+    }
+  }
+
+  .product-description-section {
+    width: 100%;
+    background-color: #f5f5f5;
+    @include flex-wrap();
+    padding: 30px 15px;
+
+    $svgW: 100px;
+    span.svg {
+      width: $svgW;
+      height: $svgW;
+      @include flex-wrap();
+
+      svg {
+        height: 100%;
+        width: 100%;
+        fill: $green;
+      }
+    }
+
+    .product-description {
+      width: calc(100% - #{$svgW});
+      padding-left: 15px;
+    }
+  }
+}

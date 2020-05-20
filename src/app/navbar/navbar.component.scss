@@ -1,6 +1,7 @@
 @import './../variable';
 
 nav.navbar {
+  background: #ffffff;
   @include flex-wrap();
   padding: 12px 15px;
 
