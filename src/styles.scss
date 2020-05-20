@@ -20,6 +20,10 @@ body {
   background-color: #f5f5f5;
 }
 
+.page {
+  min-height: 90vh;
+}
+
 .heading {
   padding: 10px 15px;
   font-weight: bold;
@@ -32,4 +36,24 @@ body {
 
 .text-green {
   color: #09726C;
+}
+
+@media screen and (min-width: 610px) {
+  body {
+    font-size: 16px;
+  }
+
+  .heading {
+    font-size: 18px;
+  }
+}
+
+::-moz-selection {
+  color: white;
+  background: #09726C;
+}
+
+::selection {
+  color: white;
+  background: #09726C;
 }

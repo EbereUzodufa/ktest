@@ -66,4 +66,9 @@ nav.navbar {
       }
     }
   }
+
+  @media screen and (min-width: 610px){
+    padding-right: 20%;
+    padding-left: 20%;
+  }
 }
