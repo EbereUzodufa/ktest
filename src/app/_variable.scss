@@ -5,3 +5,8 @@ $dark: #121212;
   display: flex;
   flex-wrap: wrap;
 }
+
+@mixin w100 {
+  width: 100%;
+  max-width: 100%;
+}
