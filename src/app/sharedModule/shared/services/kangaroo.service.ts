@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { IHistory } from '../models/app.model';
+import { IHistory } from '../../models/app.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class KangarooService {
 
   constructor() { }
 
   addToLocalStr(item: IHistory) {
+    console.log(item);
     const arr = this.checkforOldRecords();
     if (arr.length > historyArr.length) {
       historyArr = arr.slice(0) as IHistory[];
@@ -28,6 +27,8 @@ export class KangarooService {
   }
 
   getHistoryFromLocal() {
+    console.log('Laoo');
+
     return new Promise((res, rej) => {
       let arr = [];
       const data = localStorage.getItem('history');
