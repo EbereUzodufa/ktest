@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { HistoryComponent } from './history/history.component';
+import {QuicklinkStrategy, QuicklinkModule} from 'ngx-quicklink';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'history',
-    component: HistoryComponent
+    loadChildren: () => import('./history/history.module').then(m => m.HistoryModule)
   },
   {
     path: '**',
@@ -26,10 +26,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(
-    routes, {
-      preloadingStrategy: PreloadAllModules
-    })],
+  imports: [
+    QuicklinkModule,
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: QuicklinkStrategy
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
