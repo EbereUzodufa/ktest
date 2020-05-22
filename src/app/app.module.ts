@@ -4,23 +4,23 @@ import { AppRoutingModule } from './app.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HistoryComponent } from './history/history.component';
 import { HomeComponent } from './home/home.component';
+import { HistoryModule } from './history/history.module';
+import { SharedModule } from './sharedModule/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
     NavbarComponent,
-    HistoryComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HistoryModule,
+    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
