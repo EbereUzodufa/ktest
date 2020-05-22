@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KangarooService } from '../services/kangaroo.service';
-import { IHistory, IInput } from '../models/app.model';
+import { KangarooService, IHistory } from 'src/app/sharedModule';
 
 @Component({
   selector: 'app-history',
@@ -8,7 +7,6 @@ import { IHistory, IInput } from '../models/app.model';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-
   histories: IHistory[] = [];
 
   constructor(
@@ -18,10 +16,11 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
     this.kangarooService.getHistoryFromLocal().then(r => {
       this.histories = r as IHistory[];
-      console.log(r);
+      console.log('dd', this.histories);
     }).catch(err => {
       // will add to logger but log out for now
       console.error(err);
     });
   }
+
 }

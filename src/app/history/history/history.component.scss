@@ -1,4 +1,4 @@
-@import './../variable';
+@import './../../variable';
 
 .history-page {
   min-height: 90vh;
@@ -41,8 +41,8 @@
 
     a[role='button'] {
       text-decoration: none;
-      background: #09726C;
-      border: 1px solid #09726C;
+      background: $green;
+      border: 1px solid $green;
       border-radius: 6px;
       color: #FFFFFF;
       text-transform: uppercase;
