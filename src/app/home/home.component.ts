@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IInput, IHistory } from '../models/app.model';
-import { KangarooService } from '../services/kangaroo.service';
+import { KangarooService, IInput, IHistory } from '../sharedModule';
 
 @Component({
   selector: 'app-home',
